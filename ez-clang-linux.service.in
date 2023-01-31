@@ -1,0 +1,13 @@
+[Unit]
+Description=Permanent ez-clang-linux remote host service
+After=network-online.target
+StartLimitBurst=10
+StartLimitIntervalSec=1
+
+[Service]
+Type=simple
+ExecStart=@CMAKE_BINARY_DIR@/@EZ_RESTART_BINARY@ @EZ_RESTART_PORT@
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
